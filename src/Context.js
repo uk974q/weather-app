@@ -10,9 +10,11 @@ function ContextProvider(props){
     async function handleMenuClick(cityName){
         setIsLoading(true)
         activateButton(cityName)
+        // let apiKey = await fetch("/api/")
+        // .then(res => res.json())
+        // console.log("API:",apiKey)
         let res = await getWeather(cityName)
         setIsLoading(false)
-        console.log("RES",res)
         setCurrentDay(res.days[0])
         setForecastDays(res.days.slice(1,4))
     }
